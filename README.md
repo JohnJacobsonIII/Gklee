@@ -34,6 +34,11 @@ Many package managers have suitable versions of the prerequisits for your distro
 4. run cmake [path to GKLEE root]
 5. build the system
 
+## NOTE: The below will likely break, but when make fails, make the following 2 changes:
+1. Fix `Gklee/build/CMakeFiles/LLVM.dir/build.make` on line 92, removing the invalid space, so it should contain `-DCMAKE_CXX_FLAGS=-std=c++11`
+2. Fix `Gklee/llvm/src/LLVM/projects/compiler-rt/lib/asan/asan_linux.cc` by adding `#include <signal.h>`
+
+
 Here's a quick example of config and GNU Makefile based build (on Ubuntu):
 
 ```bash
